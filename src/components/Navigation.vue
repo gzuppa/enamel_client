@@ -1,7 +1,7 @@
 <template>
   <div class="nav">
     <div class="nav-left">
-      <a :href="`${url}`" class="logo">enamel</a>
+      <a :href="`${url}`" class="logo">MEYPAR</a>
     </div>
     <NavigationRight v-if="auth"></NavigationRight>
   </div>
