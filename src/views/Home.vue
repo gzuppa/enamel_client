@@ -6,8 +6,8 @@
 
     <el-main>
       <div class="container-center">
-        <h2>Welcome!</h2>
-        <div>Enter your email address to start free trial</div>
+        <h2>Bienvenido a la plataforma de mantenimiento Meypar!</h2>
+        <div>Ingresa tu correo electrónico para registrarte por primera ocasión</div>
 
         <div v-if="error" class="error">
           {{ error }}
@@ -19,18 +19,18 @@
             <el-input v-model="form.email" placeholder="Email"></el-input>
           </el-form-item>
           <el-form-item>
-            <el-button type="primary" @click="capture">Create my enamel account</el-button>
+            <el-button type="primary" @click="capture">Registrarme en la plataforma</el-button>
           </el-form-item>
         </el-form>
 
         <div>
-          <span>Already have an enamel account?</span>
+          <span>¿Ya estás registrado?</span>
           <router-link :to="{name: 'login'}" class="link">Log in</router-link>
         </div>
 
         <div v-if="submitted">
-          <div>Thank you!</div>
-          <div>Please check your email.</div>
+          <div>¡Muchas gracias!</div>
+          <div>Por favor revisa tu bandeja de entrada (o spam) para confirmar tu cuenta</div>
         </div> 
       </div>
 
@@ -61,7 +61,7 @@ export default {
     async capture() {
       const {email} = this.form
       if (!email || !validateEmail(email)) {
-        this.error = 'Please enter a valid email'
+        this.error = 'Ingresa un correo válido'
         return
       }
       this.$apollo.mutate({
@@ -75,12 +75,12 @@ export default {
         if (error.graphQLErrors.length >= 1) {
           this.error = error.graphQLErrors[0].message            
         } else {
-          this.error = 'Something went wrong'
+          this.error = 'Algo salió mal'
         }
         console.log(error)
       })
 
-    },
+    },  
   }
 }
 </script>
