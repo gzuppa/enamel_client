@@ -6,7 +6,7 @@
 
     <el-main>
       <div class="container-center">
-        <h2>Log in</h2>
+        <h2>Ingresa aquí</h2>
         
         <div v-if="error" class="error">
           {{ error }}
@@ -20,13 +20,13 @@
             <el-input v-model="form.password" type="password" placeholder="Password"></el-input>
           </el-form-item>
           <el-form-item>
-            <el-button type="primary" @click="login">Log in</el-button>
+            <el-button type="primary" @click="login">Ingresa</el-button>
           </el-form-item>
         </el-form>
 
         <div>
-          <span>Don't have an account?</span>
-          <router-link :to="{name: 'home'}" class="link">Create an account</router-link>
+          <span>¿Aún no tienes una cuenta?</span>
+          <router-link :to="{name: 'home'}" class="link">Registrarse</router-link>
         </div>
       </div>
 
@@ -64,7 +64,7 @@ export default {
           this.saveUserData(id, token)
           this.$router.push({name: 'workspace'})
         }).catch((error) => {
-          this.error = 'Invalid email or password'
+          this.error = 'Email o password inválido'
           console.log(error)
         })
       }
